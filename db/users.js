@@ -8,6 +8,7 @@ const user = mongoose.Schema({
     sign_date: Number,
     password: String,
     mmr: Number,
+    info:String,
     rank: Object,
     team_id: { type: String, default: "" },
     search_for_team: { type: Boolean, default: false },
