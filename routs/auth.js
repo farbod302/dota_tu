@@ -19,7 +19,7 @@ router.post("/send_code", async (req, res) => {
 })
 
 router.post("/sign_up", async (req, res) => {
-    const { name, phone, code, dota_id, password, user_name, info, signature_heros, roles, mmr, rank_medal, rank_star } = req.body
+    const { name, phone, code, dota_id, password, user_name, info, signature_heros, roles, rank_medal, rank_star,nick_name } = req.body
     const is_user_name_taken = await User.findOne({ "identity.user_name": user_name })
     if (is_user_name_taken) return res_handler.reject(res, "5")
     const is_valid_code = sms_handler.verify_code(phone, code)
@@ -32,6 +32,7 @@ router.post("/sign_up", async (req, res) => {
             user_name,
             phone
         },
+        nick_name,
         signature_heros,
         roles,
         info,
@@ -39,7 +40,6 @@ router.post("/sign_up", async (req, res) => {
         user_id,
         date: Date.now(),
         password: shortHash(password),
-        mmr,
         rank: {
             rank_medal,
             rank_star

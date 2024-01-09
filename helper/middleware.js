@@ -5,7 +5,7 @@ const middleware = {
     body_handler(req, res, next) {
         const body_data = {
             "/auth/send_code": ["phone","log_in"],
-            "/auth/sign_up":[ "name", "phone", "code", "dota_id", "password", "user_name","info","signature_heros","roles"],
+            "/auth/sign_up":[ "name", "phone", "code", "dota_id", "password", "user_name","info","signature_heros","roles","nick_name"],
             "/auth/sign_in_with_password":["user_name_or_phone","password"],
             "/auth/sign_in_with_verification_code":["code","phone"]
         }
