@@ -19,7 +19,7 @@ router.post("/send_code", async (req, res) => {
 })
 
 router.post("/sign_up", async (req, res) => {
-    const { name, phone, code, dota_id, password, user_name, info, signature_heros, roles, rank_medal, rank_star,nick_name } = req.body
+    const { name, phone, code, dota_id, password, user_name, info, signature_heros, roles, rank_medal, rank_star,nick_name ,avatar} = req.body
     const is_user_name_taken = await User.findOne({ "identity.user_name": user_name })
     if (is_user_name_taken) return res_handler.reject(res, "5")
     const is_valid_code = sms_handler.verify_code(phone, code)
@@ -43,7 +43,8 @@ router.post("/sign_up", async (req, res) => {
         rank: {
             rank_medal,
             rank_star
-        }
+        },
+        avatar
     }
     new User(new_user).save()
     const jwt_token = JWT.sign({ user_name, user_id })

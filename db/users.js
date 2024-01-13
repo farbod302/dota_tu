@@ -13,6 +13,7 @@ const user = mongoose.Schema({
     team_id: { type: String, default: "" },
     search_for_team: { type: Boolean, default: false },
     active: { type: Boolean, default: true },
+    avatar:String
 })
 
 module.exports = mongoose.model("User", user)
