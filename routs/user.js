@@ -11,4 +11,4 @@ router.get("/profile",async (req, res) => {
 })
 
 
-module.exports = express.Router
+module.exports = router
