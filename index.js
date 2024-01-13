@@ -11,6 +11,7 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 app.use(middleware.body_handler)
+app.use(middleware.token_handler)
 
 const routs_keys = Object.keys(routs)
 routs_keys.forEach(path => app.use(path, routs[path]))
