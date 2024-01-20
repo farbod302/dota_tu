@@ -8,7 +8,8 @@ const middleware = {
             "/auth/send_code": ["phone", "log_in"],
             "/auth/sign_up": ["name", "phone", "code", "dota_id", "password", "user_name", "info", "signature_heros", "roles", "nick_name"],
             "/auth/sign_in_with_password": ["user_name_or_phone", "password"],
-            "/auth/sign_in_with_verification_code": ["code", "phone"]
+            "/auth/sign_in_with_verification_code": ["code", "phone"],
+            "/tournament/new_tournament":["name","tournament_type","teams_count","games_type","group_stage","prize_poll","entry","mmr_avg","registration_deadline","start_at"]
         }
         const { url, body, method } = req
         if (method === "GET") return next()
